@@ -4,5 +4,11 @@ services:
   productdb:
     image: postgres
 
+  product.api:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: Services/Product/Product.API/Dockerfile
+
 volumes:
   postgres_product:
