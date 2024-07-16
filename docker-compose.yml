@@ -4,11 +4,31 @@ services:
   productdb:
     image: postgres
 
+  cartdb:
+    image: postgres
+
+  distributedcache:
+    image: redis
+
+
+  
+
+
   product.api:
     image: ${DOCKER_REGISTRY-}productapi
     build:
       context: .
       dockerfile: Services/Product/Product.API/Dockerfile
 
+  cart.api:
+    image: ${DOCKER_REGISTRY-}cartapi
+    build:
+      context: .
+      dockerfile: Services/Cart/Cart.API/Dockerfile
+
 volumes:
   postgres_product:
+  postgres_cart:
+
+
+
